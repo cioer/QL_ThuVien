@@ -4,6 +4,10 @@
 
 package main;
 
+import view.DangNhap;
+
+
+
 /**
  *
  * @author Admin
@@ -11,6 +15,8 @@ package main;
 public class QL_ThuVien {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        DangNhap dn = new DangNhap();
+        
+        dn.setVisible(true);
     }
 }

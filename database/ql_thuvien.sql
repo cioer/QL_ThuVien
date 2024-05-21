@@ -1,3 +1,6 @@
+drop database ql_thuvien
+go
+
 create database ql_thuvien
 go
 
@@ -42,7 +45,8 @@ CREATE TABLE [patron_account] (
   [firstName] nvarchar(50),
   [lastName] nvarchar(50),
   [email] varchar(50) UNIQUE,
-  [status] varchar(10)
+  [pass] varchar(200),
+  [status] varchar(10) default 'offline'
 )
 GO
 
@@ -72,7 +76,7 @@ GO
 
 CREATE TABLE [notification] (
   [noteID] varchar(40) PRIMARY KEY,
-  [sentAt] datetime,
+  [sentAt] date,
   [type] varchar(20),
   [patronID] varchar(20)
 )
