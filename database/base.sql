@@ -1,3 +1,9 @@
+create database ql_thuvien
+go
+
+use ql_thuvien
+go
+
 CREATE TABLE [category] (
   [categoryID] varchar(20) PRIMARY KEY,
   [name] nvarchar(100)
@@ -50,11 +56,11 @@ GO
 
 CREATE TABLE [checkout] (
   [checkoutID] varchar(20) PRIMARY KEY,
-  [startTime] timestamp,
-  [endTime] timestamp,
+  [startTime] datetime,
+  [endTime] datetime,
   [patronID] varchar(20),
   [bookCopyID] varchar(40),
-  [isReturn] bool
+  [isReturn] bit
 )
 GO
 
@@ -66,7 +72,7 @@ GO
 
 CREATE TABLE [notification] (
   [noteID] varchar(40) PRIMARY KEY,
-  [sentAt] timestamp,
+  [sentAt] datetime,
   [type] varchar(20),
   [patronID] varchar(20)
 )
