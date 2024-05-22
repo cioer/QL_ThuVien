@@ -75,6 +75,11 @@ public class DangNhap extends javax.swing.JFrame {
         btDangKi.setForeground(new java.awt.Color(51, 51, 255));
         btDangKi.setText(" Đăng kí ngay!");
         btDangKi.setToolTipText("");
+        btDangKi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDangKiActionPerformed(evt);
+            }
+        });
 
         ckHienPass.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         ckHienPass.addActionListener(new java.awt.event.ActionListener() {
@@ -142,7 +147,7 @@ public class DangNhap extends javax.swing.JFrame {
         this.pass = Arrays.toString(this.tfPass.getPassword());
         PatronCtrl pctr = new PatronCtrl();
         Patron p = pctr.DangNhap(email, pass);
-        if (p == null){
+        if (p.getPatronID() == null){
             JOptionPane.showMessageDialog(rootPane, "email hoac pass khong dung!");
             this.tfPass.setText("");
             
@@ -162,6 +167,12 @@ public class DangNhap extends javax.swing.JFrame {
             this.tfPass.setEchoChar('\u2022');
         }
     }//GEN-LAST:event_ckHienPassActionPerformed
+
+    private void btDangKiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDangKiActionPerformed
+        // TODO add your handling code here:
+        FDangKi dk = new FDangKi();
+        dk.setVisible(true);
+    }//GEN-LAST:event_btDangKiActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDangKi;
