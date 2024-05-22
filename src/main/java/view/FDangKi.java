@@ -91,11 +91,21 @@ public class FDangKi extends javax.swing.JFrame {
                 tfLNameFocusLost(evt);
             }
         });
+        tfLName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfLNameActionPerformed(evt);
+            }
+        });
 
         tfFName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tfFName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tfFNameFocusLost(evt);
+            }
+        });
+        tfFName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfFNameActionPerformed(evt);
             }
         });
 
@@ -116,6 +126,11 @@ public class FDangKi extends javax.swing.JFrame {
         tfEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tfEmailFocusLost(evt);
+            }
+        });
+        tfEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfEmailActionPerformed(evt);
             }
         });
 
@@ -146,6 +161,11 @@ public class FDangKi extends javax.swing.JFrame {
         pfRePass.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 pfRePassFocusLost(evt);
+            }
+        });
+        pfRePass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pfRePassActionPerformed(evt);
             }
         });
 
@@ -207,10 +227,10 @@ public class FDangKi extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(btResetMaKH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tfPatronID))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btResetMaKH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tfPatronID)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LbFName)
@@ -350,6 +370,26 @@ public class FDangKi extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(rootPane,"Them that bai!");
        }
     }//GEN-LAST:event_btDangKiActionPerformed
+
+    private void tfFNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFNameActionPerformed
+        // TODO add your handling code here:
+        this.tfLName.requestFocus();
+    }//GEN-LAST:event_tfFNameActionPerformed
+
+    private void tfLNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfLNameActionPerformed
+        // TODO add your handling code here:
+        this.tfEmail.requestFocus();
+    }//GEN-LAST:event_tfLNameActionPerformed
+
+    private void tfEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmailActionPerformed
+        // TODO add your handling code here:
+        this.pfPass.requestFocus();
+    }//GEN-LAST:event_tfEmailActionPerformed
+
+    private void pfRePassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfRePassActionPerformed
+        // TODO add your handling code here:
+        this.ckAgree.requestFocus();
+    }//GEN-LAST:event_pfRePassActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
