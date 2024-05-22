@@ -16,7 +16,7 @@ GO
 CREATE TABLE [book] (
   [bookID] varchar(20) PRIMARY KEY,
   [title] nvarchar(200),
-  [catetgoryID] varchar(20)
+  [categoryID] varchar(20)
 )
 GO
 
