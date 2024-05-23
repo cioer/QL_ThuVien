@@ -9,14 +9,15 @@ go
 
 CREATE TABLE [category] (
   [categoryID] varchar(20) PRIMARY KEY,
-  [name] nvarchar(100)
+  [name] nvarchar(100) NOT NULL
 )
 GO
 
 CREATE TABLE [book] (
   [bookID] varchar(20) PRIMARY KEY,
-  [title] nvarchar(200),
-  [categoryID] varchar(20)
+  [title] nvarchar(200) NOT NULL,
+  [categoryID] varchar(20),
+  [url] varchar(256)
 )
 GO
 
@@ -29,7 +30,7 @@ GO
 
 CREATE TABLE [author] (
   [authorID] varchar(20) PRIMARY KEY,
-  [name] nvarchar(100)
+  [name] nvarchar(100) NOT NULL
 )
 GO
 
@@ -42,17 +43,17 @@ GO
 
 CREATE TABLE [patron_account] (
   [patronID] varchar(20) PRIMARY KEY,
-  [firstName] nvarchar(50),
-  [lastName] nvarchar(50),
+  [firstName] nvarchar(50) NOT NULL,
+  [lastName] nvarchar(50) NOT NULL,
   [email] varchar(50) UNIQUE,
-  [pass] varchar(200),
-  [status] varchar(10) default 'offline'
+  [pass] varchar(200) NOT NULL,
+  [status] varchar(10) DEFAULT 'offline'
 )
 GO
 
 CREATE TABLE [bookCopy] (
   [bookCopyID] varchar(40) PRIMARY KEY,
-  [yearPublished] int,
+  [yearPublished] int NOT NULL,
   [bookID] varchar(20),
   [publisherID] varchar(20)
 )
@@ -70,14 +71,14 @@ GO
 
 CREATE TABLE [publisher] (
   [publisherID] varchar(20) PRIMARY KEY,
-  [name] nvarchar(200)
+  [name] nvarchar(200) NOT NULL
 )
 GO
 
 CREATE TABLE [notification] (
   [noteID] varchar(40) PRIMARY KEY,
   [sentAt] date,
-  [type] varchar(20),
+  [type] varchar(20) NOT NULL,
   [patronID] varchar(20)
 )
 GO
@@ -103,7 +104,7 @@ GO
 ALTER TABLE [waitlist] ADD FOREIGN KEY ([bookID]) REFERENCES [book] ([bookID])
 GO
 
-ALTER TABLE [book] ADD FOREIGN KEY ([catetgoryID]) REFERENCES [category] ([categoryID])
+ALTER TABLE [book] ADD FOREIGN KEY ([categoryID]) REFERENCES [category] ([categoryID])
 GO
 
 ALTER TABLE [book_author] ADD FOREIGN KEY ([authorID]) REFERENCES [author] ([authorID])

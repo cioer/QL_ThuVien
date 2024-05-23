@@ -33,13 +33,13 @@ public class BookCtrl {
         String query = "SELECT " +
                 "b.bookID, " +
                 "b.title, " +
-                "b.catetgoryID " +
+                "b.categoryID " +
                 "FROM book b " +
                 "LEFT JOIN book_author ba ON b.bookID = ba.bookID " +
                 "LEFT JOIN author a ON ba.authorID = a.authorID " +
                 "LEFT JOIN bookCopy bc ON b.bookID = bc.bookID " +
                 "LEFT JOIN publisher p ON bc.publisherID = p.publisherID " +
-                "LEFT JOIN category c ON b.catetgoryID = c.categoryID " +
+                "LEFT JOIN category c ON b.categoryID = c.categoryID " +
                 "WHERE " +
                 "(? IS NULL OR b.title LIKE '%' + ? + '%') AND " +
                 "(? IS NULL OR a.name LIKE '%' + ? + '%') AND " +
