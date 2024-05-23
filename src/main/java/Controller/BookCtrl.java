@@ -23,7 +23,25 @@ public class BookCtrl {
         this.conn = Conn.conn();
     }
 
-    
+    //hien tat ca sach
+    public List<Book> listSach(){
+        String query = "select * from book";
+        List<Book> books = new ArrayList<>();
+        try {
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(query);
+            while (rs.next()) {
+                    Book book = new Book();
+                    book.setBookID(rs.getString(1));
+                    book.setTitle(rs.getString(2));
+                    book.setCategoryID(rs.getString(3));
+                    books.add(book);
+                }
+        } catch (SQLException ex) {
+            Logger.getLogger(BookCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return books;
+    }
     
     //tim kiem sach
     
@@ -33,13 +51,13 @@ public class BookCtrl {
         String query = "SELECT " +
                 "b.bookID, " +
                 "b.title, " +
-                "b.catetgoryID " +
+                "b.categoryID " +
                 "FROM book b " +
                 "LEFT JOIN book_author ba ON b.bookID = ba.bookID " +
                 "LEFT JOIN author a ON ba.authorID = a.authorID " +
                 "LEFT JOIN bookCopy bc ON b.bookID = bc.bookID " +
                 "LEFT JOIN publisher p ON bc.publisherID = p.publisherID " +
-                "LEFT JOIN category c ON b.catetgoryID = c.categoryID " +
+                "LEFT JOIN category c ON b.categoryID = c.categoryID " +
                 "WHERE " +
                 "(? IS NULL OR b.title LIKE '%' + ? + '%') AND " +
                 "(? IS NULL OR a.name LIKE '%' + ? + '%') AND " +

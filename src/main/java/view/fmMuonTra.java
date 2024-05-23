@@ -25,6 +25,7 @@ public class fmMuonTra extends javax.swing.JFrame {
     public fmMuonTra() {
         initComponents();
         bookctr = new BookCtrl();
+        hienBang(bookctr.listSach());
     }
 
     /**
@@ -239,8 +240,10 @@ public class fmMuonTra extends javax.swing.JFrame {
         if (evt.getClickCount() == 2){//bouble click vao 1 dong cua bang
             //hien thong tin chi tiet cua sach
             //kem theo cac nut muon sach, cho sach,...
-            
-            
+            int row = this.tbSach.getSelectedRow();
+            String masach = this.tbSach.getValueAt(row, 0).toString();
+            fmTTSach ttSach = new fmTTSach(masach);
+            ttSach.setVisible(true);
         }
     }//GEN-LAST:event_tbSachMouseClicked
 

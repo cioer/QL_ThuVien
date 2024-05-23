@@ -3,9 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
@@ -21,5 +20,11 @@ public class Conn {
             Logger.getLogger(Conn.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    
+    public static ResultSet getData(String query) throws SQLException{
+        Statement stm = conn().createStatement();
+        return stm.executeQuery(query);
+        
     }
 }

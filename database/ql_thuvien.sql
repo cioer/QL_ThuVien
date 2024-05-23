@@ -103,7 +103,7 @@ GO
 ALTER TABLE [waitlist] ADD FOREIGN KEY ([bookID]) REFERENCES [book] ([bookID])
 GO
 
-ALTER TABLE [book] ADD FOREIGN KEY ([catetgoryID]) REFERENCES [category] ([categoryID])
+ALTER TABLE [book] ADD FOREIGN KEY ([categoryID]) REFERENCES [category] ([categoryID])
 GO
 
 ALTER TABLE [book_author] ADD FOREIGN KEY ([authorID]) REFERENCES [author] ([authorID])
