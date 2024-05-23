@@ -2,11 +2,12 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="title" type="java.lang.String" value="Th&#xf4;ng tin cu&#x1ed1;n s&#xe1;ch"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -23,13 +24,82 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="551" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btLum" min="-2" pref="243" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="2" max="-2" attributes="0">
+                      <Component id="lbTitleSach" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lbTheLoai" alignment="0" max="32767" attributes="0"/>
+                      <Component id="cmbTacGia" max="32767" attributes="0"/>
+                      <Component id="lbSoSachHienCo" alignment="0" pref="243" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="152" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="515" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lbTitleSach" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Component id="cmbTacGia" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Component id="lbTheLoai" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Component id="lbSoSachHienCo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+              <Component id="btLum" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="28" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="lbTitleSach">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Liberation Sans" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="title sach"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbTheLoai">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="the loai"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cmbTacGia">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+        <Property name="doubleBuffered" type="boolean" value="true"/>
+        <Property name="editor" type="javax.swing.ComboBoxEditor" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="null"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbTacGiaActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbSoSachHienCo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="so luong sach hien tai"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btLum">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="L&#x1ee5;m n&#xf3; v&#xe0; gi&#x1ecf;!"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btLumActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
 </Form>
