@@ -137,14 +137,17 @@ public class DangNhap extends javax.swing.JFrame {
 
     private void tfEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmailActionPerformed
         // TODO add your handling code here:
-        this.email = this.tfEmail.getText();
+        
         this.tfPass.requestFocus();
     }//GEN-LAST:event_tfEmailActionPerformed
 
     private void tfPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPassActionPerformed
         // TODO add your handling code here:
         this.tfEmail.requestFocus();
+        this.email = this.tfEmail.getText();
+        
         this.pass = Arrays.toString(this.tfPass.getPassword());
+        
         PatronCtrl pctr = new PatronCtrl();
         Patron p = pctr.DangNhap(email, pass);
         if (p.getPatronID() == null){
@@ -152,8 +155,11 @@ public class DangNhap extends javax.swing.JFrame {
             this.tfPass.setText("");
             
         }else{
-            String fullName = p.getFirstName() + " " + p.getLastName();
-            JOptionPane.showMessageDialog(rootPane, "Chao mung "+ fullName);
+            /*String fullName = p.getFirstName() + " " + p.getLastName();
+            JOptionPane.showMessageDialog(rootPane, "Chao mung "+ fullName);*/
+            fmMuonTra fmMT = new fmMuonTra(p);
+            fmMT.setVisible(true);
+            this.dispose();
         }
         
     }//GEN-LAST:event_tfPassActionPerformed

@@ -356,16 +356,17 @@ public class FDangKi extends javax.swing.JFrame {
 
     private void btDangKiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDangKiActionPerformed
         // TODO add your handling code here:
+        String hashPass = PatronCtrl.encryptPassword(Arrays.toString(this.pfPass.getPassword()));
        Patron p = new Patron();
        p.setFirstName(this.tfFName.getText());
        p.setLastName(this.tfLName.getText());
        p.setPatronID(this.tfPatronID.getText());
-       p.setPass(PatronCtrl.encryptPassword(Arrays.toString(this.pfPass.getPassword())));
+       p.setPass(hashPass);
        p.setEmail(this.tfEmail.getText());
        PatronCtrl pctrl = new PatronCtrl();
        if(pctrl.themKH(p)){
            JOptionPane.showMessageDialog(rootPane, "Them thanh cong!");
-           
+           this.dispose();
        }else{
            JOptionPane.showMessageDialog(rootPane,"Them that bai!");
        }

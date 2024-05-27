@@ -30,14 +30,13 @@ public class PatronCtrl {
         try {
             //dang nhap thanh cong thi tra ve khach(patron) ; neu khong thi tra ve null
             String passHash = encryptPassword(pass);
-            
+           
             String query = "select * from patron_account where (email = ?)";
             PreparedStatement pstm = conn.prepareStatement(query);
             pstm.setString(1, email);
-            
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
-                if (passHash.equals(rs.getString(5))) {
+                if (passHash.equals(rs.getString("pass"))) {
                     p.setPatronID(rs.getString(1));
                     p.setFirstName(rs.getString(2));
                     p.setLastName(rs.getString(3));
