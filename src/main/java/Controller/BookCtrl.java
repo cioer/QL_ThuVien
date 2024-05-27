@@ -23,7 +23,25 @@ public class BookCtrl {
         this.conn = Conn.conn();
     }
 
-    
+    //hien tat ca sach
+    public List<Book> listSach(){
+        String query = "select * from book";
+        List<Book> books = new ArrayList<>();
+        try {
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(query);
+            while (rs.next()) {
+                    Book book = new Book();
+                    book.setBookID(rs.getString(1));
+                    book.setTitle(rs.getString(2));
+                    book.setCategoryID(rs.getString(3));
+                    books.add(book);
+                }
+        } catch (SQLException ex) {
+            Logger.getLogger(BookCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return books;
+    }
     
     //tim kiem sach
     
