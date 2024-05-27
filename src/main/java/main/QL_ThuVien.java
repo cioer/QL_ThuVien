@@ -4,6 +4,7 @@
 
 package main;
 
+import Controller.PatronCtrl;
 import view.DangNhap;
 import view.fmMuonTra;
 
@@ -16,11 +17,12 @@ import view.fmMuonTra;
 public class QL_ThuVien {
 
     public static void main(String[] args) {
-        /*DangNhap dn = new DangNhap();
+        DangNhap dn = new DangNhap();
         
-        dn.setVisible(true);*/
+        dn.setVisible(true);
         
-        fmMuonTra muonTra = new fmMuonTra();
-        muonTra.setVisible(true);
+        /* fmMuonTra muonTra = new fmMuonTra();
+        muonTra.setVisible(true);*/
+        
     }
 }
