@@ -8,6 +8,7 @@ import Controller.Data;
 import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 
 
@@ -36,6 +37,37 @@ public class QL_data extends javax.swing.JFrame {
         model.addAll(dsBang);
     }
 
+    private void changeLB(){
+        boolean[] view =new boolean[7];
+        int columnCount = this.tb.getColumnCount();
+        String[] lb = new String[7];
+        for(int i =0; i < columnCount;i++){
+            view[i+1] = true;
+            lb[i+1] = tb.getColumnName(i);
+        }
+        //hien va an
+        lb1.setVisible(view[1]);
+        tf1.setVisible(view[1]);
+        lb2.setVisible(view[2]);
+        tf2.setVisible(view[2]);
+        lb3.setVisible(view[3]);
+        tf3.setVisible(view[3]);
+        lb4.setVisible(view[4]);
+        tf4.setVisible(view[4]);
+        lb5.setVisible(view[5]);
+        tf5.setVisible(view[5]);
+        lb6.setVisible(view[6]);
+        tf6.setVisible(view[6]);
+        
+        lb1.setText(lb[1]);
+        lb2.setText(lb[2]);
+        lb3.setText(lb[3]);
+        lb4.setText(lb[4]);
+        lb5.setText(lb[5]);
+        lb6.setText(lb[6]);
+        
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,10 +81,28 @@ public class QL_data extends javax.swing.JFrame {
         cmbTables = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb = new javax.swing.JTable();
-        btAdd = new javax.swing.JButton();
-        btDelete = new javax.swing.JButton();
-        btFix = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        lbCurrentRow = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        btAdd = new javax.swing.JButton();
+        btFix = new javax.swing.JButton();
+        btDelete = new javax.swing.JButton();
+        lb1 = new javax.swing.JLabel();
+        lb2 = new javax.swing.JLabel();
+        tf1 = new javax.swing.JTextField();
+        tf2 = new javax.swing.JTextField();
+        lb3 = new javax.swing.JLabel();
+        tf3 = new javax.swing.JTextField();
+        lb4 = new javax.swing.JLabel();
+        tf4 = new javax.swing.JTextField();
+        lb5 = new javax.swing.JLabel();
+        tf5 = new javax.swing.JTextField();
+        lb6 = new javax.swing.JLabel();
+        tf6 = new javax.swing.JTextField();
+        btSearch = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,11 +125,16 @@ public class QL_data extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tb);
 
-        btAdd.setText("Thêm");
+        jButton1.setText("<<");
 
-        btDelete.setText("Xóa");
+        jButton2.setText("<");
 
-        btFix.setText("Sửa");
+        jButton3.setText(">");
+
+        jButton4.setText(">>");
+
+        lbCurrentRow.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbCurrentRow.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -89,46 +144,139 @@ public class QL_data extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addComponent(cmbTables, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(226, 226, 226)
+                        .addComponent(cmbTables, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(9, 9, 9))
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
+                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(41, 41, 41)
-                .addComponent(btAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(129, 129, 129)
-                .addComponent(btFix, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(170, 170, 170)
-                .addComponent(btDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(55, 55, 55))
+                .addComponent(lbCurrentRow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(39, 39, 39)
+                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
+                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(cmbTables)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                .addComponent(cmbTables, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btAdd)
-                    .addComponent(btDelete)
-                    .addComponent(btFix, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4)
+                    .addComponent(lbCurrentRow))
                 .addContainerGap())
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Search", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Feature", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18))); // NOI18N
+
+        btAdd.setText("Thêm");
+        btAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAddActionPerformed(evt);
+            }
+        });
+
+        btFix.setText("Sửa");
+
+        btDelete.setText("Xóa");
+
+        lb1.setText("jLabel1");
+
+        lb2.setText("jLabel2");
+
+        lb3.setText("jLabel3");
+
+        lb4.setText("jLabel4");
+
+        lb5.setText("jLabel5");
+
+        lb6.setText("jLabel6");
+
+        btSearch.setText("Tìm kiếm");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 151, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                        .addGap(28, 28, 28)
+                        .addComponent(btFix, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                        .addGap(28, 28, 28)
+                        .addComponent(btDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(135, 135, 135)
+                                .addComponent(btSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lb1)
+                                    .addComponent(lb2)
+                                    .addComponent(lb3)
+                                    .addComponent(lb4)
+                                    .addComponent(lb5)
+                                    .addComponent(lb6))
+                                .addGap(45, 45, 45)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tf6)
+                                    .addComponent(tf5)
+                                    .addComponent(tf4)
+                                    .addComponent(tf3)
+                                    .addComponent(tf2)
+                                    .addComponent(tf1))))
+                        .addGap(22, 22, 22))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb1)
+                    .addComponent(tf1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb2)
+                    .addComponent(tf2))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb3)
+                    .addComponent(tf3))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb4)
+                    .addComponent(tf4))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb5)
+                    .addComponent(tf5))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb6)
+                    .addComponent(tf6))
+                .addGap(33, 33, 33)
+                .addComponent(btSearch)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btAdd)
+                    .addComponent(btFix, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btDelete))
+                .addGap(120, 120, 120))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -139,7 +287,7 @@ public class QL_data extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -147,8 +295,10 @@ public class QL_data extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -161,8 +311,18 @@ public class QL_data extends javax.swing.JFrame {
         if (this.cmbTables.getSelectedIndex() == 0) {
             return;
         }
-        String tbName = cmbTables.getSelectedItem().toString();
+        String query = "select * from "+ cmbTables.getSelectedItem().toString();
+        boolean ck = data.showTable(tb, query);
+        changeLB();
+        if (!ck){
+            JOptionPane.showMessageDialog(rootPane, "Loi!");
+        }
     }//GEN-LAST:event_cmbTablesActionPerformed
+
+    private void btAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,10 +363,28 @@ public class QL_data extends javax.swing.JFrame {
     private javax.swing.JButton btAdd;
     private javax.swing.JButton btDelete;
     private javax.swing.JButton btFix;
+    private javax.swing.JButton btSearch;
     private javax.swing.JComboBox<String> cmbTables;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lb1;
+    private javax.swing.JLabel lb2;
+    private javax.swing.JLabel lb3;
+    private javax.swing.JLabel lb4;
+    private javax.swing.JLabel lb5;
+    private javax.swing.JLabel lb6;
+    private javax.swing.JLabel lbCurrentRow;
     private javax.swing.JTable tb;
+    private javax.swing.JTextField tf1;
+    private javax.swing.JTextField tf2;
+    private javax.swing.JTextField tf3;
+    private javax.swing.JTextField tf4;
+    private javax.swing.JTextField tf5;
+    private javax.swing.JTextField tf6;
     // End of variables declaration//GEN-END:variables
 }

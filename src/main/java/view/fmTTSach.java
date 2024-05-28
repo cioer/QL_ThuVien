@@ -59,6 +59,7 @@ public class fmTTSach extends javax.swing.JFrame {
         setTitle("Thông tin cuốn sách");
 
         lbTitleSach.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        lbTitleSach.setForeground(new java.awt.Color(255, 0, 51));
         lbTitleSach.setText("title sach");
 
         lbTheLoai.setText("the loai");
