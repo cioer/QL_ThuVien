@@ -27,4 +27,8 @@ public class Conn {
         return stm.executeQuery(query);
         
     }
+    public static int update(String query) throws SQLException{
+        Statement stm = conn().createStatement();
+        return stm.executeUpdate(query);
+    }
 }

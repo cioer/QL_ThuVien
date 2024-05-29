@@ -5,12 +5,14 @@
 package view;
 
 import Controller.Data;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
-
-
+import model.Conn;
 
 /**
  *
@@ -23,7 +25,6 @@ public class QL_data extends javax.swing.JFrame {
     /**
      * Creates new form QL_data
      */
-
     public QL_data() {
         initComponents();
         data = new Data();
@@ -37,13 +38,13 @@ public class QL_data extends javax.swing.JFrame {
         model.addAll(dsBang);
     }
 
-    private void changeLB(){
-        boolean[] view =new boolean[7];
+    private void changeLB() {
+        boolean[] view = new boolean[7];
         int columnCount = this.tb.getColumnCount();
         String[] lb = new String[7];
-        for(int i =0; i < columnCount;i++){
-            view[i+1] = true;
-            lb[i+1] = tb.getColumnName(i);
+        for (int i = 0; i < columnCount; i++) {
+            view[i + 1] = true;
+            lb[i + 1] = tb.getColumnName(i);
         }
         //hien va an
         lb1.setVisible(view[1]);
@@ -58,7 +59,7 @@ public class QL_data extends javax.swing.JFrame {
         tf5.setVisible(view[5]);
         lb6.setVisible(view[6]);
         tf6.setVisible(view[6]);
-        
+
         lb1.setText(lb[1]);
         lb2.setText(lb[2]);
         lb3.setText(lb[3]);
@@ -66,8 +67,8 @@ public class QL_data extends javax.swing.JFrame {
         lb5.setText(lb[5]);
         lb6.setText(lb[6]);
         
-        
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -311,19 +312,77 @@ public class QL_data extends javax.swing.JFrame {
         if (this.cmbTables.getSelectedIndex() == 0) {
             return;
         }
-        String query = "select * from "+ cmbTables.getSelectedItem().toString();
+        String query = "select * from " + cmbTables.getSelectedItem().toString();
         boolean ck = data.showTable(tb, query);
         changeLB();
-        if (!ck){
+        if (!ck) {
             JOptionPane.showMessageDialog(rootPane, "Loi!");
         }
     }//GEN-LAST:event_cmbTablesActionPerformed
 
     private void btAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddActionPerformed
         // TODO add your handling code here:
-        
+        String queryTb = "select * from "+this.cmbTables.getSelectedItem().toString();
+        String query = "insert into " + this.cmbTables.getSelectedItem().toString() + " values ("+values()+")";
+        try {
+            Conn.update(query);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, ex);
+            return; 
+        }
+        reset();
+        data.showTable(tb, queryTb);
     }//GEN-LAST:event_btAddActionPerformed
+    private String values() {
+        StringBuilder str = new StringBuilder();
+        if (this.tf1.isVisible()) {
+            str.append("'");
+            str.append(tf1.getText().trim());
+            str.append("'");
+        }
+        if (this.tf2.isVisible()) {
+            str.append(",");
+            str.append("N'");
+            str.append(tf2.getText().trim());
+            str.append("'");
+        }
+        if (this.tf3.isVisible()) {
+            str.append(",");
+            str.append("N'");
+            str.append(tf3.getText().trim());
+            str.append("'");
+        }
+        if (this.tf4.isVisible()) {
+            str.append(",");
+            str.append("N'");
+            str.append(tf4.getText().trim());
+            str.append("'");
+        }
+        if (this.tf5.isVisible()) {
+            str.append(",");
+            str.append("N'");
+            str.append(tf5.getText().trim());
+            str.append("'");
+        }
+        if (this.tf6.isVisible()) {
+            str.append(",");
+            str.append("N'");
+            str.append(tf6.getText().trim());
+            str.append("'");
+        }
 
+        return str.toString();
+    }
+
+     private void reset(){
+         tf1.setText("");
+         tf2.setText("");
+         tf3.setText("");
+         tf4.setText("");
+         tf5.setText("");
+         tf6.setText("");
+         
+     }
     /**
      * @param args the command line arguments
      */
